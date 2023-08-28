@@ -23,7 +23,7 @@ class Register extends React.Component {
   }
 
   onSubmitSignIn = () => {
-    fetch('https://face-recognition-brain-uo9p.onrenders.com/register', {
+    fetch('https://face-recognition-brain-uo9p.onrender.com/register', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -32,7 +32,7 @@ class Register extends React.Component {
         name: this.state.name
       })
     })
-      .then(response => response.stringify())
+      .then(response => response.json())
       // .then(response => console.log(response))
       .then(user => {
         if (user.id) {
