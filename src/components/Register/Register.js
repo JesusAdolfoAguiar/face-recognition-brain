@@ -23,7 +23,7 @@ class Register extends React.Component {
   }
 
   onSubmitSignIn = () => {
-    fetch('https://face-recognition-brain-uo9p.onrender.com', {
+    fetch('https://face-recognition-brain-uo9p.onrender.com/register', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -32,15 +32,15 @@ class Register extends React.Component {
         name: this.state.name
       })
     })
-    .then(resp => resp.text()).then(console.log)
+    // .then(resp => resp.text()).then(console.log)
     // .then(response => console.log(response))
-    // .then(response => response.json())
-    .then(user => {
-      if (user.id) {
-        this.props.loadUser(user)
-        this.props.onRouteChange('home');
-      }
-    })
+      .then(response => response.json())
+      .then(user => {
+        if (user.id) {
+          this.props.loadUser(user)
+          this.props.onRouteChange('home');
+        }
+      })
     .catch((error) => console.error("Something went wrong: ", error))
   }
 
