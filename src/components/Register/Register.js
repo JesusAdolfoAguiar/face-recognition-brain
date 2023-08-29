@@ -32,16 +32,16 @@ class Register extends React.Component {
         name: this.state.name
       })
     })
-      .then(resp => resp.text()).then(console.log)
-      // .then(response => console.log(response))
-      // .then(response => response.json())
-
-      .then(user => {
-        if (user.id) {
-          this.props.loadUser(user)
-          this.props.onRouteChange('home');
-        }
-      })
+    .then(resp => resp.text()).then(console.log)
+    // .then(response => console.log(response))
+    // .then(response => response.json())
+    .then(user => {
+      if (user.id) {
+        this.props.loadUser(user)
+        this.props.onRouteChange('home');
+      }
+    })
+    .catch((error) => console.error("Something went wrong: ", error))
   }
 
   render() {
