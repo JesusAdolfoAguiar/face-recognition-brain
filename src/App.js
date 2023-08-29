@@ -63,7 +63,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-      fetch('https://face-recognition-brain-uo9p.onrender.com/imageurl', {
+      fetch('https://face-recognition-brain-api-xdck.onrender.com/imageurl', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -74,7 +74,7 @@ class App extends Component {
       .then(response => {
         console.log('hi', response)
         if (response) {
-          fetch('https://face-recognition-brain-uo9p.onrender.com/image', {
+          fetch('https://face-recognition-brain-api-xdck.onrender.com/image', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
