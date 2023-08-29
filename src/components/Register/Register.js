@@ -32,9 +32,9 @@ class Register extends React.Component {
         name: this.state.name
       })
     })
-      .then(response => console.log(response))
-      .then(response => response.json())
-      // .then(response => response.text())
+      .then(resp => resp.text()).then(console.log)
+      // .then(response => console.log(response))
+      // .then(response => response.json())
 
       .then(user => {
         if (user.id) {
